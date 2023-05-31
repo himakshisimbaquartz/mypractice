@@ -37,6 +37,7 @@ const Product = () => {
                 <input type="number" id="productPrice" name="productPrice" />
                 </div>
                 <input type="submit" value="Submit" />
+                
             </form>
         </>
     )
