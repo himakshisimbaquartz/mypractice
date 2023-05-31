@@ -13,6 +13,7 @@ const data=[{
     title:"Product description",
     key:"ProductDescription",
     component: 'Product_description'
+
 },
 {
     title:"warranty",
@@ -27,7 +28,12 @@ const data=[{
 {
     title:"History",
     key:"History",
-    component: 'History'
+    component:[{
+        title:'Approval History',
+        key:'ApprovalHistory',
+        component:''
+    }]
+    
 },
 ]
 const datas=(component)=>{
@@ -44,6 +50,9 @@ const datas=(component)=>{
             break;
     }
 }
+
+
+
     return(
         <div>
         <Tabs onChange={(e)=>setkey(e)}>
@@ -53,6 +62,8 @@ const datas=(component)=>{
                 <Badge > {ite?.title}</Badge>
             }>
             </Tabs.TabPane>
+
+
         ))}
         </Tabs>
         {datas(key)}
