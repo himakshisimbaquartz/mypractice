@@ -1,3 +1,4 @@
+import { floatButtonPrefixCls } from "antd/es/float-button/FloatButton";
 import React from "react";
 // import './indexStyle.css';
 const Product = () => {
@@ -5,45 +6,47 @@ const Product = () => {
         <>
             <div className="wrapper w-full flex justify-center">
                 <div className=" flex flex-col w-[60%] rounded-md">
-                    <form className=" flex justify-center mx-auto p-10 rounded-md flex-col bg-red-400 p-2 w-[300px]">
-                        <div>
-                            <label for="chooseProduct" class="text-gray-700 font-bold mb-2">Choose Product:</label>
-                            <select id="chooseProduct " name="chooseProduct">
+                    <form className=" flex justify-start mx-auto p-10 rounded-md flex-col bg-slate-500 shadow-[0_0_0.5rem] p-6 w-[500px] ">
+                        <div className="mb-4 flex justify-center flex-col" >
+                            <label for="chooseProduct" class="text-gray-700 font-bold mb-2 text-white font-serif">Choose Product:</label>
+                            <select id="chooseProduct " name="chooseProduct" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-sm">
                                 <option value="product1">Product 1</option>
                                 <option value="product2">Product 2</option>
                                 <option value="product3">Product 3</option>
                             </select>
                         </div>
-                        <div className="">
-                            <label for="productType" class="text-gray-700 font-bold mb-2">Product Type:</label>
-                            <input type="text" id="productType" name="productType" className="border" />
+                        <div className="mb-4 flex justify-center flex-col">
+                            <label for="productType" class="text-gray-700 font-bold mb-2 text-white font-serif">Product Type:</label>
+                            <input type="text" id="productType" name="productType" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md" />
                         </div>
-                        <div>
-                            <label for="model" class="text-gray-700 font-bold mb-2">Model:</label>
-                            <input type="text" id="model" name="model" />
+                        <div className="mb-4 flex justify-center flex-col">
+                            <label for="model" class="text-gray-700 font-bold mb-2 text-white font-serif">Model:</label>
+                            <input type="text" id="model" name="model" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md" />
                         </div>
-                        <div>
-                            <label for="serialNo" class="text-gray-700 font-bold mb-2">Serial No.:</label>
-                            <input type="text" id="serialNo" name="serialNo" />
+                        <div className="mb-4 flex justify-center flex-col">
+                            <label for="serialNo" class="text-gray-700 font-bold mb-2 text-white font-serif">Serial No.:</label>
+                            <input type="text" id="serialNo" name="serialNo" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
                         </div>
-                        <div>
-                            <label for="department" class="text-gray-700 font-bold mb-2">Department:</label>
-                            <input type="text" id="department" name="department" />
+                        <div className="mb-4 flex justify-center flex-col">
+                            <label for="department" class="text-gray-700 font-bold mb-2 text-white font-serif">Department:</label>
+                            <input type="text" id="department" name="department" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
                         </div>
-                        <div>
-                            <label for="installationDate" class="text-gray-700 font-bold mb-2">Installation Date:</label>
-                            <input type="date" id="installationDate" name="installationDate" />
+                        <div className="mb-4 flex justify-center flex-col">
+                            <label for="installationDate" class="text-gray-700 font-bold mb-2 text-white font-serif">Installation Date:</label>
+                            <input type="date" id="installationDate" name="installationDate" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
                         </div>
-                        <div>
-                            <label for="productPrice" class="text-gray-700 font-bold mb-2">Product Price:</label>
-                            <input type="number" id="productPrice" name="productPrice" />
+                        <div className="mb-4 flex justify-center flex-col">
+                            <label for="productPrice" class="text-gray-700 font-bold mb-2 text-white font-serif">Product Price:</label>
+                            <input type="number" id="productPrice" name="productPrice" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
                         </div>
-                        <input type="submit" value="Submit" />
 
+          
+                        <button type="submit" className="p-3 bg-black text-white font-serif w-[5rem] rounded-md mx-auto">Submit</button>
                     </form>
                 </div>
             </div>
         </>
+        
     )
 }
 export default Product
