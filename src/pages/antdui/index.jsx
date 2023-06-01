@@ -4,6 +4,7 @@ import Product from "../../component/product";
 import Warranty from "../../component/warranty";
 import Documents from "../../component/Document";
 import History from "../../component/history";
+import PmsDetails from "../../component/PmsDetails";
 // import "./Antd.css";
 
 
@@ -18,8 +19,8 @@ const Antd = () => {
             key: "ProductDescription",
             component: <Product />
         },
-        {
 
+        {
             title: "Warranty",
             key: "Warranty",
             component: [
@@ -449,8 +450,15 @@ const Antd = () => {
                     />
                 }
             ]
-        }
+        },
+        {
+            title: "PMS Details",
+            key: "PMSDetails",
+            component: <PmsDetails/>
+        },
     ];
+
+
 
     const renderComponent = (component) => {
         switch (component.key) {
@@ -476,7 +484,7 @@ const Antd = () => {
                                 </Tabs.TabPane>
                             ))}
                         </Tabs>
-                        <Modal visible={setismodal} footer={false} onCancel={() => {
+                        <Modal visible={isModal} footer={false} onCancel={() => {
                             setismodal(false)
                         }}>
 
