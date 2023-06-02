@@ -21,23 +21,23 @@ const Product = () => {
                         </div>
                         <div className="mb-4 flex justify-center flex-col">
                             <label for="model" class="text-gray-700 font-bold mb-2 text-white font-serif">Model:</label>
-                            <input type="text" id="model" name="model" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md" />
+                            <input placeholder="" type="text" id="model" name="model" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md" />
                         </div>
                         <div className="mb-4 flex justify-center flex-col">
                             <label for="serialNo" class="text-gray-700 font-bold mb-2 text-white font-serif">Serial No.:</label>
-                            <input type="text" id="serialNo" name="serialNo" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
+                            <input placeholder="" type="text" id="serialNo" name="serialNo" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
                         </div>
                         <div className="mb-4 flex justify-center flex-col">
                             <label for="department" class="text-gray-700 font-bold mb-2 text-white font-serif">Department:</label>
-                            <input type="text" id="department" name="department" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
+                            <input placeholder="" type="text" id="department" name="department" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
                         </div>
                         <div className="mb-4 flex justify-center flex-col">
                             <label for="installationDate" class="text-gray-700 font-bold mb-2 text-white font-serif">Installation Date:</label>
-                            <input type="date" id="installationDate" name="installationDate" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
+                            <input placeholder=""type="date" id="installationDate" name="installationDate" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
                         </div>
                         <div className="mb-4 flex justify-center flex-col">
                             <label for="productPrice" class="text-gray-700 font-bold mb-2 text-white font-serif">Product Price:</label>
-                            <input type="number" id="productPrice" name="productPrice" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
+                            <input placeholder="" type="number" id="productPrice" name="productPrice" className="p-[0.5rem_1rem] font-serif border-none outline-none rounded-md"/>
                         </div>
 
           

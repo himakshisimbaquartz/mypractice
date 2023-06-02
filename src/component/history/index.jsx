@@ -10,12 +10,11 @@ import React,{useState} from 'react'
       
         const handleApprovalClick = () => {
           setApprovalClicked(true);
-          // Add your logic for approval history button click
+
         };
       
         const handleComplaintClick = () => {
           setComplaintClicked(true);
-          // Add your logic for complaint history button click
         };
       
         return (
