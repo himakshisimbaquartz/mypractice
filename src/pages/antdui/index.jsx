@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import { Badge, Tabs, Table, Button, Modal } from 'antd';
+import { Badge, Tabs, Table, Button, Modal, Slider  } from 'antd';
 import Product from "../../component/product";
 import Warranty from "../../component/warranty";
 import Documents from "../../component/Document";
 import History from "../../component/history";
 import PmsDetails from "../../component/PmsDetails";
+import BrowsingHistory from "../../component/Browsinghistory";
+
 // import "./Antd.css";
 
 
 const Antd = () => {
     const [key, setKey] = useState("ProductDescription");
     const [isModal, setismodal] = useState(false)
+    const [sliderValue, setSliderValue] = useState(0);
 
 
     const data = [
@@ -95,9 +98,6 @@ const Antd = () => {
                                 ContractStatus: "active",
                                 ApprovalStatus: "approved",
                                 dataIndex: "Action"
-
-
-
                             }
                         ]}
                         columns={[
@@ -234,18 +234,14 @@ const Antd = () => {
                                 dataIndex: "modifiedDateTime",
                                 key: "modifiedDateTime"
                             },
-                            {
-                                title: "Action",
-                                key: "action",
-                                render: (text, record) => (
-                                    <Button type="primary" className={"bg-sky-500/100 ..."} onClick={() => { setismodal(true) }}>Details</Button>
-
-
-                                )
-                            }
+                            
                         ]}
                     />
+                    
+                    
                 },
+                
+                
                 {
                     title: "Shared Documents",
                     key: "SharedDocuments",
@@ -322,6 +318,7 @@ const Antd = () => {
 
                         ]}
                     />
+
                 },
                 {
                     title: "Internal Documents",
@@ -349,7 +346,6 @@ const Antd = () => {
 
                             },
                             {
-                                // // Status	Assigned to	Submitted by	Date/Time	Comments	Description
                                 Status: 2,
                                 Assignedto: "Type 2",
                                 Submittedby: "Sub Type 2",
@@ -396,7 +392,6 @@ const Antd = () => {
                     />
                 },
                 {
-                    // Complaint Raised By	Complaint No.	Complaint Date	Closing Date	Call Closed By
                     title: "Complaint History",
                     key: "ComplaintHistory",
                     component: <Table
@@ -409,7 +404,7 @@ const Antd = () => {
                                 CallClosedBy: "Himakshi",
                             },
                             {
-                                // // Status	Assigned to	Submitted by	Date/Time	Comments	Description
+                                
                                 ComplaintRaisedBy: "jyoti",
                                 ComplaintNo: "2",
                                 ComplaintDate: "2023-05-02",
@@ -442,7 +437,15 @@ const Antd = () => {
                                 title: "Call Closed By",
                                 dataIndex: "CallClosedBy",
                                 key: "CallClosedBy"
-                            }
+                            },
+                            {
+                                    title: "Action",
+                                    dataIndex: "action",
+                                    key: "action",
+                                    render: () => (
+                                        <Button type="primary" className={"bg-sky-500/100 ..."}>See deatils</Button>
+                                    )
+                                }
 
 
 
@@ -451,10 +454,286 @@ const Antd = () => {
                 }
             ]
         },
+
         {
             title: "PMS Details",
             key: "PMSDetails",
-            component: <PmsDetails/>
+            component: (
+                <Tabs defaultActiveKey="All">
+                    <Tabs.TabPane tab="All" key="All">
+                        <Table
+                            dataSource={[]}
+                            columns={[
+                                {
+                                    title: "Company",
+                                    dataIndex: "company",
+                                    key: "company"
+                                },
+                                {
+                                    title: "PMS date",
+                                    dataIndex: "pmsDate",
+                                    key: "pmsDate"
+                                },
+                                {
+                                    title: "PMS done by",
+                                    dataIndex: "pmsDoneBy",
+                                    key: "pmsDoneBy"
+                                },
+                                {
+                                    title: "Financial year",
+                                    dataIndex: "financialYear",
+                                    key: "financialYear"
+                                },
+                                {
+                                    title: "Financial year PMS",
+                                    dataIndex: "financialYearPMS",
+                                    key: "financialYearPMS"
+                                },
+                                {
+                                    title: "Days Total",
+                                    dataIndex: "daysTotal",
+                                    key: "daysTotal"
+                                },
+                                {
+                                    title: "PMS Status",
+                                    dataIndex: "pmsStatus",
+                                    key: "pmsStatus"
+                                }
+                            ]}
+                        />
+                    </Tabs.TabPane>
+
+                    <Tabs.TabPane tab="Overdue" key="Overdue">
+                    <Table
+                            dataSource={[]}
+                            columns={[
+                                {
+                                    title: "PMS no",
+                                    dataIndex: "PMSno",
+                                    key: "PMSno"
+                                },
+                                {
+                                    title: "Customer",
+                                    dataIndex: "Customer",
+                                    key: "Customer"
+                                },
+                                {
+                                    title: " Location ",
+                                    dataIndex: "Location",
+                                    key: "Location"
+                                },
+                                {
+                                    title: "Department Name",
+                                    dataIndex: "DepartmentName",
+                                    key: "DepartmentName"
+                                },
+                                {
+                                    title: "Product	Type ",
+                                    dataIndex: "ProductType",
+                                    key: "ProductType"
+                                },
+                                {
+                                    title: "Model",
+                                    dataIndex: "Model",
+                                    key: "Model"
+                                },
+                                {
+                                    title: "Company",
+                                    dataIndex: "Company",
+                                    key: "Company"
+                                },
+                                {
+                                    title: "PMS date ",
+                                    dataIndex: "PMSdate ",
+                                    key: "PMSdate "
+                                },
+                                {
+                                    title: "Days crossed",
+                                    dataIndex: "Dayscrossed ",
+                                    key: "Days crossed"
+                                },
+                                {
+                                    title: "Total PMS",
+                                    dataIndex: "TotalPMS ",
+                                    key: "TotalPMS"
+                                },
+
+                            ]}
+                        />
+
+
+                    </Tabs.TabPane>
+                    
+                    <Tabs.TabPane tab="Upcoming" key="Upcoming">
+                    <Table	
+
+                            dataSource={[]}
+                            columns={[
+                                {
+                                    title: "PMS no",
+                                    dataIndex: "PMSno",
+                                    key: "PMSno"
+                                },
+                                {
+                                    title: "Customer",
+                                    dataIndex: "Customer",
+                                    key: "Customer"
+                                },
+                                {
+                                    title: " Location ",
+                                    dataIndex: "Location",
+                                    key: "Location"
+                                },
+                                {
+                                    title: "Department Name",
+                                    dataIndex: "DepartmentName",
+                                    key: "DepartmentName"
+                                },
+                                {
+                                    title: "Product	Type ",
+                                    dataIndex: "ProductType",
+                                    key: "ProductType"
+                                },
+                                {
+                                    title: "Model",
+                                    dataIndex: "Model",
+                                    key: "Model"
+                                },
+                                {
+                                    title: "Company",
+                                    dataIndex: "Company",
+                                    key: "Company"
+                                },
+                                {
+                                    title: "PMS date ",
+                                    dataIndex: "PMSdate ",
+                                    key: "PMSdate "
+                                },
+                                {
+                                    title: "Days left",
+                                    dataIndex: "Daysleft ",
+                                    key: "Daysleft"
+                                },
+                                {
+                                    title: "Total PMS",
+                                    dataIndex: "TotalPMS ",
+                                    key: "TotalPMS"
+                                },
+
+                            ]}
+                        />
+
+                    </Tabs.TabPane>
+
+                    <Tabs.TabPane tab="Completed" key="Completed">
+                       <Table
+
+                            dataSource={[]}
+                            columns={[
+                                {
+                                    title: " PMS no ",
+                                    dataIndex: "PMSno ",
+                                    key: " PMSno"
+                                },
+                                {
+                                    title: "Customer ",
+                                    dataIndex: "Customer",
+                                    key: "Customer"
+                                },
+                                {
+                                    title: "Location ",
+                                    dataIndex: "Location",
+                                    key: "Location "
+                                },
+                                {
+                                    title: " Department Name",
+                                    dataIndex: " DepartmentName",
+                                    key: " DepartmentName"
+                                },
+                                {
+                                    title: "Product	Type",
+                                    dataIndex: "ProductType",
+                                    key: "ProductType"
+                                },
+                                {
+                                    title: " Model ",
+                                    dataIndex: "Model",
+                                    key: "Model"
+                                },
+                                {
+                                    title: "Company",
+                                    dataIndex: "Company",
+                                    key: "Company"
+                                },
+                                {
+                                    title: "PMS date ",
+                                    dataIndex: "PMS date",
+                                    key: "PMS date"
+                                },
+                                {
+                                    title: "PMS done by",
+                                    dataIndex: "PMSdoneby",
+                                    key: "PMSdoneby"
+                                },
+                                {
+                                    title: "Status",
+                                    dataIndex: "Status",
+                                    key: "Status"
+                                },
+                                {
+                                    title: "Days",
+                                    dataIndex: "Days ",
+                                    key: " Days"
+                                },
+                                {
+                                    title: "Total PMS ",
+                                    dataIndex: "TotalPMS ",
+                                    key: "TotalPMS"
+                                },
+                                {
+                                    title: "Rating ",
+                                    dataIndex: "Rating",
+                                    key: "Rating"
+                                },
+
+                            ]}
+                        />
+                    </Tabs.TabPane>
+                </Tabs>
+            )
+        },
+
+        {
+            title: "Browsing History",
+            key: "BrowsingHistory",
+            component: <Table
+            dataSource={[]}
+            columns={[
+                {
+                    // Activity performed by	Section Name	Task Name	Date/Time
+                    title: "Activity performed by",
+                    dataIndex: "Activityperformedby",
+                    key: "Activityperformedby"
+                },
+                {
+                    title: "Section Name",
+                    dataIndex: "SectionName",
+                    key: "SectionName"
+                },
+                {
+                    title: "Task Name ",
+                    dataIndex:"TaskName",
+                    key: "TaskName"
+                },
+                {
+                    title: "Date/Time",
+                    dataIndex: "Date/Time",
+                    key: "Date/Time"
+                }
+                
+            
+            ]}
+        />
         },
     ];
 
@@ -531,5 +810,7 @@ const Antd = () => {
         </div>
     );
 };
+
+
 
 export default Antd;
