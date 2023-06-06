@@ -1,4 +1,4 @@
-
+import React from 'react';
 import './App.css';
 import Documents from './component/Document';
 import History from './component/history';
