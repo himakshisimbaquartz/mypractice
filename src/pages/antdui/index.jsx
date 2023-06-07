@@ -1,54 +1,20 @@
 import React, { useState } from 'react';
-import { Tabs, Dropdown, Menu, Table, Button, Space, Modal, Form, Input } from 'antd';
+import { Tabs, Dropdown, Menu, Table, Button, Space, Modal, Form, Input,Select, Upload, DatePicker } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { UploadOutlined } from '@ant-design/icons';
 
 const { TabPane } = Tabs;
+const { Option } = Select;
 const columns = [
-    {
-      title: 'Serial No.',
-      dataIndex: 'serialNo',
-      key: 'serialNo',
-    },
-    {
-      title: 'Type',
-      dataIndex: 'type',
-      key: 'type',
-    },
-    {
-      title: 'Sub Type',
-      dataIndex: 'subType',
-      key: 'subType',
-    },
-    {
-      title: 'Category',
-      dataIndex: 'category',
-      key: 'category',
-    },
-    {
-      title: 'Doc Date',
-      dataIndex: 'docDate',
-      key: 'docDate',
-    },
-    {
-      title: 'Document No.',
-      dataIndex: 'documentNo',
-      key: 'documentNo',
-    },
-    {
-      title: 'Title',
-      dataIndex: 'title',
-      key: 'title',
-    },
-    {
-      title: 'Created Date/Time',
-      dataIndex: 'createdDateTime',
-      key: 'createdDateTime',
-    },
-    {
-      title: 'Modified Date/Time',
-      dataIndex: 'modifiedDateTime',
-      key: 'modifiedDateTime',
-    },
+    {title: 'Serial No.',dataIndex: 'serialNo',key: 'serialNo',},
+    {title: 'Type',dataIndex: 'type',key: 'type',},
+    {title: 'Sub Type',dataIndex: 'subType',key: 'subType',},
+    {title: 'Category',dataIndex: 'category',key: 'category',},
+    {title: 'Doc Date',dataIndex: 'docDate',key: 'docDate',},
+    {title: 'Document No.',dataIndex: 'documentNo',key: 'documentNo',},
+    {title: 'Title',dataIndex: 'title',key: 'title',},
+    {title: 'Created Date/Time',dataIndex: 'createdDateTime',key: 'createdDateTime',},
+    {title: 'Modified Date/Time',dataIndex: 'modifiedDateTime',key: 'modifiedDateTime',},
   ];
   
   const data = [
@@ -56,26 +22,10 @@ const columns = [
   ];
 
   const browsingHistoryColumns = [
-    {
-      title: 'Activity performed by',
-      dataIndex: 'activityBy',
-      key: 'activityBy',
-    },
-    {
-      title: 'Section Name',
-      dataIndex: 'sectionName',
-      key: 'sectionName',
-    },
-    {
-      title: 'Task Name',
-      dataIndex: 'taskName',
-      key: 'taskName',
-    },
-    {
-      title: 'Date/Time',
-      dataIndex: 'dateTime',
-      key: 'dateTime',
-    },
+    {title: 'Activity performed by',dataIndex: 'activityBy',key: 'activityBy',},
+    {title: 'Section Name',dataIndex: 'sectionName',key: 'sectionName',},
+    {title: 'Task Name',dataIndex: 'taskName',key: 'taskName',},
+    {title: 'Date/Time',dataIndex: 'dateTime',key: 'dateTime',},
   ];
   
   const browsingHistoryData = [
@@ -83,36 +33,12 @@ const columns = [
   ];
 
   const approvalHistoryColumns = [
-    {
-      title: 'Status',
-      dataIndex: 'status',
-      key: 'status',
-    },
-    {
-      title: 'Assigned to',
-      dataIndex: 'assignedTo',
-      key: 'assignedTo',
-    },
-    {
-      title: 'Submitted by',
-      dataIndex: 'submittedBy',
-      key: 'submittedBy',
-    },
-    {
-      title: 'Date/Time',
-      dataIndex: 'dateTime',
-      key: 'dateTime',
-    },
-    {
-      title: 'Comments',
-      dataIndex: 'comments',
-      key: 'comments',
-    },
-    {
-      title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
-    },
+    {title: 'Status',dataIndex: 'status',key: 'status',},
+    {title: 'Assigned to',dataIndex: 'assignedTo',key: 'assignedTo',},
+    {title: 'Submitted by',dataIndex: 'submittedBy',key: 'submittedBy',},
+    {title: 'Date/Time',dataIndex: 'dateTime',key: 'dateTime',},
+    {title: 'Comments',dataIndex: 'comments',key: 'comments',},
+    {title: 'Description',dataIndex: 'description',key: 'description',},
   ];
   
   const approvalHistoryData = [
@@ -120,31 +46,11 @@ const columns = [
   ];
 
   const complaintHistoryColumns = [
-    {
-      title: 'Complaint Raised By',
-      dataIndex: 'complaintRaisedBy',
-      key: 'complaintRaisedBy',
-    },
-    {
-      title: 'Complaint No.',
-      dataIndex: 'complaintNo',
-      key: 'complaintNo',
-    },
-    {
-      title: 'Complaint Date',
-      dataIndex: 'complaintDate',
-      key: 'complaintDate',
-    },
-    {
-      title: 'Closing Date',
-      dataIndex: 'closingDate',
-      key: 'closingDate',
-    },
-    {
-      title: 'Call Closed By',
-      dataIndex: 'callClosedBy',
-      key: 'callClosedBy',
-    },
+    {title: 'Complaint Raised By',dataIndex: 'complaintRaisedBy',ey: 'complaintRaisedBy',},
+    {title: 'Complaint No.',dataIndex: 'complaintNo',key: 'complaintNo',},
+    {title: 'Complaint Date',dataIndex: 'complaintDate',key: 'complaintDate',},
+    {title: 'Closing Date',dataIndex: 'closingDate',key: 'closingDate',},
+    {title: 'Call Closed By',dataIndex: 'callClosedBy',key: 'callClosedBy',},   
   ];
   
   const complaintHistoryData = [
@@ -152,35 +58,12 @@ const columns = [
   ];
 
   const warrantyColumns = [
-    {
-      title: 'Warranty No.',
-      dataIndex: 'warrantyNo',
-      key: 'warrantyNo',
-    },
-    {
-      title: 'Warranty Period',
-      dataIndex: 'warrantyPeriod',
-      key: 'warrantyPeriod',
-    },
-    {
-      title: 'PMS',
-      dataIndex: 'pms',
-      key: 'pms',
-    },
-    {
-      title: 'Start Date',
-      dataIndex: 'startDate',
-      key: 'startDate',
-    },
-    {
-      title: 'End Date',
-      dataIndex: 'endDate',
-      key: 'endDate',
-    },
-    {
-      title: 'Action',
-      dataIndex: 'action',
-      key: 'action',
+    {title: 'Warranty No.',dataIndex: 'warrantyNo',key: 'warrantyNo',},
+    {title: 'Warranty Period',dataIndex: 'warrantyPeriod',key: 'warrantyPeriod',},
+    {title: 'PMS',dataIndex: 'pms',key: 'pms',},
+    {title: 'Start Date',dataIndex: 'startDate',key: 'startDate',},
+    {title: 'End Date',dataIndex: 'endDate',key: 'endDate',},
+    {title: 'Action',dataIndex: 'action',key: 'action',
       render: (_, record) => (
         <Button
           type="primary"
@@ -196,21 +79,10 @@ const columns = [
   
   const warrantyData = [
     // Add your data rows here
-    {
-        warrantyNo: 'W001',
-        warrantyPeriod: '12 months',
-        pms: 'Yes',
-        startDate: '2023-01-01',
-        endDate: '2024-01-01',
-      },
-      {
-        warrantyNo: 'W002',
-        warrantyPeriod: '24 months',
-        pms: 'No',
-        startDate: '2023-02-01',
-        endDate: '2025-02-01',
-      },
+      { warrantyNo: 'W001',warrantyPeriod: '12 months',pms: 'Yes',startDate: '2023-01-01', endDate: '2024-01-01',},
+      { warrantyNo: 'W002',warrantyPeriod: '24 months',pms: 'No',startDate: '2023-02-01',endDate: '2025-02-01',},
   ];
+
   const allPMSColumns = [
     // Define the columns for All PMS Details
     { title: 'PMS Date', dataIndex: 'pmsDate', key: 'pmsDate' },
@@ -222,18 +94,75 @@ const columns = [
   ];
 
   const allPMSData = [
-    // Data for All PMS Details
-    {
-      pmsDate: '2023-06-01',
-      pmsDoneBy: 'John Doe',
-      financialYear: '2023-2024',
-      pms: 'Service A',
-      daysTotal: 5,
-      pmsStatus: 'Completed',
-    },
+    {pmsDate: '2023-06-01',pmsDoneBy: 'John Doe',financialYear: '2023-2024',pms: 'Service A',daysTotal: 5,pmsStatus: 'Completed',},
     // Add more data as needed
   ];
-  
+
+  const alloverdueColumns = [
+    // Define the columns for All PMS Details
+    { title: 'PMS no', dataIndex: 'pmsno', key: 'pmsno' },
+    { title: 'Customer', dataIndex: 'Customer', key: 'Customer' },
+    { title: 'Location', dataIndex: 'Location', key: 'Location' },
+    { title: 'Department Name', dataIndex: 'DepartmentName', key: 'DepartmentName' },
+    { title: 'Product', dataIndex: 'Product', key: 'Product' },
+    { title: 'Model', dataIndex: 'Model', key: 'Model' },
+    { title: 'Company', dataIndex: 'Company', key: 'Company' },
+    { title: 'PMS date', dataIndex: 'PMSdate', key: 'PMSdate' },
+    { title: 'Days crossed', dataIndex: 'Dayscrossed', key: 'Dayscrossed' },
+    { title: 'Total PMS', dataIndex: 'TotalPMS', key: 'TotalPMS' },
+  ];
+
+  const alloverdueData = [
+    // Data for All PMS Details
+    {pmsno :"6766",Customer:"jvhgf",Location:"punjab",DepartmentName:"IT",Product:"abc",	Model:"8fdsy",	
+    Company:"simba",PMSdate:"2023-06-01",Dayscrossed:"10",TotalPMS:" 7",},
+    // Add more data as needed
+  ];
+
+  const upcomingColumns = [
+    { title: 'PMS no', dataIndex: 'pmsno', key: 'pmsno' },
+    { title: 'Customer', dataIndex: 'Customer', key: 'Customer' },
+    { title: 'Location', dataIndex: 'Location', key: 'Location' },
+    { title: 'Department Name', dataIndex: 'DepartmentName', key: 'DepartmentName' },
+    { title: 'Product', dataIndex: 'Product', key: 'Product' },
+    { title: 'Type', dataIndex: 'Type', key: 'Type' },
+    { title: 'Model', dataIndex: 'Model', key: 'Model' },
+    { title: 'Company', dataIndex: 'Company', key: 'Company' },
+    { title: 'PMS date', dataIndex: 'PMSdate', key: 'PMSdate' },
+    { title: 'Days left', dataIndex: 'Daysleft', key: 'Daysleft' },
+    { title: 'Total PMS', dataIndex: 'TotalPMS', key: 'TotalPMS' },
+
+  ];
+  const upcomingData = [
+    // Data for All PMS Details
+    {pmsno :"6766",Customer:"jvhgf",Location:"punjab",DepartmentName:"IT",Product:"abc",Type: "2",Model:"8fdsy",	
+    Company:"simba",PMSdate:"2023-06-01",Daysleft:"10",TotalPMS:" 7",},
+    // Add more data as needed
+  ];
+
+  const completedColumns = [
+    { title: 'PMS no', dataIndex: 'pmsno', key: 'pmsno' },
+    { title: 'Customer', dataIndex: 'Customer', key: 'Customer' },
+    { title: 'Location', dataIndex: 'Location', key: 'Location' },
+    { title: 'Department Name', dataIndex: 'DepartmentName', key: 'DepartmentName' },
+    { title: 'Product', dataIndex: 'Product', key: 'Product' },
+    { title: 'Type', dataIndex: 'Type', key: 'Type' },
+    { title: 'Model', dataIndex: 'Model', key: 'Model' },
+    { title: 'Company', dataIndex: 'Company', key: 'Company' },
+    { title: 'PMS date', dataIndex: 'PMSdate', key: 'PMSdate' },
+    { title: 'PMS done by', dataIndex: 'Pmsdoneby', key: 'Pmsdoneby' },
+    { title: 'Status', dataIndex: 'Status', key: 'Status' },
+    { title: 'Days', dataIndex: 'Days', key: 'Days' },
+    { title: 'Total PMS', dataIndex: 'TotalPMS', key: 'TotalPMS' },
+    { title: 'Rating', dataIndex: 'Rating', key: 'Rating' },
+
+  ];
+  const completedData = [
+    // Data for All PMS Details
+    {pmsno :"6766",Customer:"jvhgf",Location:"punjab",DepartmentName:"IT",Product:"abc",Type: "2",Model:"8fdsy",	
+    Company:"simba",PMSdate:"2023-06-01",Pmsdoneby:"me",Status:"active",Days:"10",TotalPMS:" 7",Rating:"6",},
+    // Add more data as needed
+  ];
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('productDescription');
@@ -248,8 +177,8 @@ const App = () => {
     documentDate: '',
     documentYear: '',
   });
+  const [showUploadForm, setShowUploadForm] = useState(false);
 
-  
 
   const handleTabChange = (key) => {
     setActiveTab(key);
@@ -260,7 +189,6 @@ const App = () => {
     // Perform the desired action based on the selected option
   };
   
-
   const getMenu = () => (
     <Menu onClick={(e) => handleMenuClick(e.key)}>
       <Menu.Item key="productDescription">Product Description</Menu.Item>
@@ -297,23 +225,100 @@ const App = () => {
 
       const handleEditFormFinish = (values) => {
         handleEditFormSubmit(values);
-      };  
+      }; 
 
+      const handleProductDescriptionFormSubmit = (values) => {
+        console.log('Product Description Form Values:', values);
+        // Perform the desired action with the form values
+      };
+
+      const handleUploadDocumentsClick = () => {
+        setShowUploadForm(true);
+      };
+      
+      const formItemLayout = {
+        labelCol: {
+          span: 6,
+        },
+        wrapperCol: {
+          span: 8,
+        },
+
+      };
+     
   return (
     <Tabs activeKey={activeTab} onChange={handleTabChange}>
       <TabPane tab="Product Description" key="productDescription">
-        <h2>Product Description</h2>
-        <p>This is the content of the Product Description tab.</p>
+<Form onFinish={handleProductDescriptionFormSubmit} size="small" style={{ paddingLeft: '20px' }}>
+          <Form.Item {...formItemLayout} label="Choose Company" name="company" rules={[{ required: true, message: 'Please choose a company' }]}>
+            <Select placeholder="Select a company">
+              <Option value="company1">Company 1</Option>
+              <Option value="company2">Company 2</Option>
+            </Select>
+          </Form.Item>
+
+          <Form.Item {...formItemLayout} label="Choose Product" name="product" rules={[{ required: true, message: 'Please choose a product' }]}>
+          
+            <Select placeholder="Select a product">
+              <Option value="product1">Product 1</Option>
+              <Option value="product2">Product 2</Option>
+            </Select>
+
+          </Form.Item>
+          <Form.Item {...formItemLayout} label="Product Type" name="productType" rules={[{ required: true, message: 'Please enter the product type' }]}>
+            <Input placeholder="Enter product type" />
+          </Form.Item>
+
+          <Form.Item {...formItemLayout} label="Model" name="model" rules={[{ required: true, message: 'Please enter the model' }]}>
+          
+            <Input placeholder="Enter model" />
+          </Form.Item>
+
+          <Form.Item {...formItemLayout} label="Serial No." name="serialNo" rules={[{ required: true, message: 'Please enter the serial number' }]}>
+          
+            <Input placeholder="Enter serial number" />
+          </Form.Item>
+
+          <Form.Item {...formItemLayout} label="Department" name="department" rules={[{ required: true, message: 'Please enter the department' }]}>
+          
+            <Input placeholder="Enter department" />
+          </Form.Item>
+
+          <Form.Item
+            {...formItemLayout}
+            label="Installation Date"
+            name="installationDate"
+            rules={[{ required: true, message: 'Please enter the installation date' }]}>
+            
+            <Input placeholder="Enter installation date" /> 
+          </Form.Item>
+
+          <Form.Item {...formItemLayout} label="Product Price" name="productPrice" rules={[{ required: true, message: 'Please enter the product price' }]}>
+          
+            <Input placeholder="Enter product price" />
+          </Form.Item>
+
+          <Form.Item>
+          <div style={{ display: 'flex', justifyContent: 'center'}}>
+
+            <Form.Item wrapperCol={{ span: 10, offset: 3}}>
+              <Button type="primary" htmlType="submit" style={{ backgroundColor: 'blue', fontSize: '16px' }} size="middle">
+                Save
+              </Button>
+            
+            </Form.Item>
+          </div>
+          </Form.Item>
+        </Form>
+
       </TabPane>
       <TabPane tab="Warranty" key="warranty">
         <Tabs defaultActiveKey="hasWarranty">
           <TabPane tab="Has Warranty" key="hasWarranty">
-            {/* <h2>Has Warranty</h2> */}
-            {/* <p>This is the content of the Has Warranty sub-tab.</p> */}
             <Table columns={warrantyColumns} dataSource={warrantyData} 
             rowKey="id"
             onRow={(record) => ({
-              onClick: () => handleEdit(record),
+              // onClick: () => handleEdit(record),
             })}
             />
             <Modal
@@ -337,8 +342,9 @@ const App = () => {
                     },
                   ]}
                 >
-                  <Input />
+                <Input />
                 </Form.Item>
+
                 <Form.Item
                   label="PMS"
                   name="pms"
@@ -347,10 +353,10 @@ const App = () => {
                       required: true,
                       message: 'Please specify whether PMS is applicable',
                     },
-                  ]}
-                >
+                  ]}>
                   <Input />
                 </Form.Item>
+
                 <Form.Item
                   label="Start Date"
                   name="startDate"
@@ -361,7 +367,8 @@ const App = () => {
                     },
                   ]}
                 >
-                  <Input />
+                <Input />
+                
                 </Form.Item>
                 <Form.Item
                   label="End Date"
@@ -383,31 +390,77 @@ const App = () => {
               </Form>
             </Modal>
           </TabPane>
+
           <TabPane tab="After Warranty" key="afterWarranty">
-            {/* <h2>After Warranty</h2> */}
-            {/* <p>This is the content of the After Warranty sub-tab.</p> */}
             <Table columns={warrantyColumns} dataSource={warrantyData} />
           </TabPane>
         </Tabs>
       </TabPane>
+
       <TabPane tab="Documents" key="documents">
         <Tabs defaultActiveKey="uploadDocuments">
           <TabPane tab="Upload Documents" key="uploadDocuments">
-            {/* <h2>Upload Documents</h2> */}
             <Table columns={columns} dataSource={data} />
           </TabPane>
           <TabPane tab="Shared Documents" key="sharedDocuments">
-            {/* <h2>Shared Documents</h2> */}
-            <div style={{ display: 'flex', alignItems: 'right' }}>
+            <div style={{ display: 'flex', alignItems: 'right',justifyContent: 'space-between', marginBottom: '12px'}}>
               <Space>
-                <Dropdown.Button overlay={getMenu()} trigger={['click']} style={{ backgroundColor: 'Cyan', color: 'white' }}>
+                <Dropdown.Button overlay={getMenu()} trigger={['click']} style={{ backgroundColor: 'DodgerBlue', color: 'black',marginLeft: '15px' }}>
                   Filter By
                 </Dropdown.Button>
-                <Button type="primary" icon={<SearchOutlined />} size="default" style={{ backgroundColor: 'Cyan', color: 'white' }}>
+                <Input style={{ marginLeft: 8, width: 450 }} placeholder="Enter title or number to search the document" />
+                <Button type="primary" icon={<SearchOutlined />} size="default" style={{ backgroundColor: 'DodgerBlue', color: 'black' }}>
                   Search
                 </Button>
               </Space>
+              {/* <div> */}
+            <Button icon={<UploadOutlined />} type="primary" size='middle' style={{ backgroundColor: 'DodgerBlue', color: 'black',marginRight: '30px' }} 
+            onClick={handleUploadDocumentsClick}>
+              Upload Documents
+            </Button>
+          {/* </div> */}
+
             </div>
+            {showUploadForm && (
+              <Form size="middle" style={{ paddingLeft: '20px'}} onFinish={handleEditFormSubmit}>
+                <h2 style={{ color: '#0047AB', fontSize: '20px',fontWeight:"bold", paddingBottom:"22px", paddingLeft:"22px", textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
+               }}>Upload Shared documents</h2>
+
+               <Form.Item {...formItemLayout} label="Document Category" name="documentCategory">
+                <Select placeholder="Product" defaultActiveFirstOption>
+              <Option value="Product"> Product</Option>
+              <Option value="Accessory"> Accessory</Option>
+            </Select>
+            </Form.Item>
+
+                <Form.Item {...formItemLayout}  label="Document Type" name="documentType">
+                <Select placeholder="Services" defaultActiveFirstOption>
+              <Option value="Sales"> Sales</Option>
+              <Option value="Services">Services</Option>
+            </Select>
+                </Form.Item>
+                <Form.Item {...formItemLayout}  label="Document Date" name="documentdate">
+                <DatePicker style={{ width: '100%' }} />
+                </Form.Item>
+                <Form.Item {...formItemLayout} label="Document Title" name="documentTitle">
+                  <Input placeholder='Title' />
+                </Form.Item>
+                <Form.Item {...formItemLayout} label="Document Number" name="documentnumber">
+                  <Input />
+                </Form.Item>
+                <Form.Item {...formItemLayout} label="Document SubType" name="documentsubtype">
+                  <Upload>
+                    <Button icon={<UploadOutlined />} style={{ backgroundColor: 'DodgerBlue', color: 'black',marginRight: '30px' }}  >Click to Upload</Button>
+                  </Upload>
+                </Form.Item>
+                <Form.Item>
+                  <Button type="primary" htmlType="submit">
+                    Upload
+                  </Button>
+                </Form.Item>
+              </Form>
+            )}
+            
             <Table columns={columns} dataSource={data} />
           </TabPane>
           <TabPane tab="Internal Documents" key="internalDocuments">
@@ -419,11 +472,9 @@ const App = () => {
       <TabPane tab="History" key="history">
         <Tabs defaultActiveKey="approvalHistory">
           <TabPane tab="Approval History" key="approvalHistory">
-            {/* <h2>Approval History</h2> */}
             <Table columns={approvalHistoryColumns} dataSource={approvalHistoryData} />
           </TabPane>
           <TabPane tab="Complaint History" key="complaintHistory">
-            {/* <h2>Complaint History</h2> */}
             <Table columns={complaintHistoryColumns} dataSource={complaintHistoryData} />
           </TabPane>
         </Tabs>
@@ -431,33 +482,32 @@ const App = () => {
       <TabPane tab="PMS Details" key="pmsDetails">
         <Tabs defaultActiveKey="allPMSDetails">
           <TabPane tab="All" key="allPMSDetails">
-            <h2>All PMS Details</h2>
-            <p>This is the content of the All PMS Details sub-tab.</p>
-            
+          <Table columns={allPMSColumns} dataSource={allPMSData} />
           </TabPane>
           <TabPane tab="Overdue" key="overduePMSDetails">
-            <h2>Overdue PMS Details</h2>
-            <p>This is the content of the Overdue PMS Details sub-tab.</p>
+          <Table columns={alloverdueColumns} dataSource={alloverdueData} />
           </TabPane>
           <TabPane tab="Upcoming" key="upcomingPMSDetails">
-            <h2>Upcoming PMS Details</h2>
-            <p>This is the content of the Upcoming PMS Details sub-tab.</p>
+          <Table columns={upcomingColumns} dataSource={upcomingData} />
           </TabPane>
+
           <TabPane tab="Completed" key="completedPMSDetails">
-            <h2>Completed PMS Details</h2>
-            <p>This is the content of the Completed PMS Details sub-tab.</p>
+          <Table columns={completedColumns} dataSource={completedData} />
           </TabPane>
         </Tabs>
       </TabPane>
+
       <TabPane tab="Browsing History" key="browsingHistory">
-        {/* <h2>Browsing History</h2> */}
-        <Dropdown.Button overlay={getMenu()} trigger={['click']} style={{ backgroundColor: 'lightblue', color: 'white' }}>
-          Filter By
-        </Dropdown.Button>
-        <Button type="primary" icon={<SearchOutlined />} size="default">
+        <div style={{ display: 'flex', alignItems: 'right' }}>
+              <Space>
+                <Dropdown.Button overlay={getMenu()} trigger={['click']} style={{ backgroundColor: 'DodgerBlue', color: 'black', marginLeft:'15px' }}>
+                  Filter By
+                </Dropdown.Button>
+                <Button type="primary" icon={<SearchOutlined />} size="default" style={{ backgroundColor: 'DodgerBlue', color: 'black' }}>
                   Search
-        </Button>
-        
+                </Button>
+              </Space>
+            </div>
         <Table columns={columns} dataSource={data} />
       </TabPane>
     </Tabs>
